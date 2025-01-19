@@ -1,0 +1,305 @@
+/*
+Theme Name: iFalsePlus
+Theme URI: https://github.com/limulu24/iFalsePlus
+Description: 一个二次元向的wordpress主题，基于iFalse二次开发
+Author: limulu24
+Author URI: https://github.com/limulu24
+Version: limulu1.7.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ifalseplus
+*/
+/*card动画*/
+/* 卡片容器 */
+.content .main-part > ul {
+    display: grid;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 卡片基础动画 */
+.content .main-part > ul > li {
+    --t-duration: 0.3s;
+    --t-y: -4px;
+    --t-scale: 1.02;
+    
+    transform: translateZ(0);
+    transition: transform var(--t-duration) ease-out;
+    will-change: transform;
+}
+
+/* 悬浮效果 */
+.content .main-part > ul > li:hover {
+    transform: translateY(var(--t-y)) scale(var(--t-scale));
+}
+
+/* 图片动画 */
+.content .main-part ul li .home-pic {
+    overflow: hidden;
+}
+
+.content .main-part ul li .home-pic img {
+    transition: transform var(--t-duration) ease-out;
+    will-change: transform;
+}
+
+.content .main-part ul li:hover .home-pic img {
+    transform: scale(1.05);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .content .main-part > ul > li {
+        --t-y: -2px;
+        --t-scale: 1.01;
+        --t-duration: 0.2s;
+    }
+}
+
+/* 减少动画 */
+@media (prefers-reduced-motion: reduce) {
+    .content .main-part > ul > li {
+        --t-y: 0;
+        --t-scale: 1;
+        --t-duration: 0.1s;
+    }
+}
+.content .main-part ul li .home-pic:hover .mask-pic {
+  background-color: var(--mask-3);
+  opacity: 0;
+} 
+.content .main-part ul li .home-pic .mask-pic {
+  z-index: 0;
+}
+/*卡片动画END*/
+/* 广告位样式 */
+.i-ad-wrap {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.i-ad-container {
+  text-align: center;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.i-ad-article-bottom {
+  margin: 30px 0;
+}
+
+.i-ad-home-banner {
+  margin: 20px auto;
+  max-width: var(--content-width, 1200px);
+}
+
+.i-ad-container iframe,
+.i-ad-container img,
+.i-ad-container ins {
+  max-width: 100%;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .i-ad-wrap {
+    margin: 15px 0;
+  }
+  
+  .i-ad-article-bottom {
+    margin: 20px 0;
+  }
+}
+/*广告位END*/
+/*移动端侧边栏头部*/
+
+.visitor .site-brand {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: var(--theme-color);
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Logo样式 */
+.visitor .site-brand .site-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 站点信息容器 */
+.visitor .site-brand .site-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+/* 站点文字通用样式 */
+.visitor .site-brand .site-text {
+  font-size: 14px;
+  font-weight: normal;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 副标题样式 */
+.visitor .site-brand .site-text-sub {
+  font-size: 13px;
+}
+
+/* 夜间模式适配 */
+.night .visitor .site-brand {
+  background: var(--theme-color-night, var(--theme-color));
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .visitor .site-brand {
+      padding: 14px;
+      margin-bottom: 10px;
+  }
+  
+  .visitor .site-brand .site-logo {
+      width: 38px;
+      height: 38px;
+      margin-right: 12px;
+  }
+  
+  .visitor .site-brand .site-info {
+      gap: 1px;
+  }
+  
+  .visitor .site-brand .site-text {
+      font-size: 13px;
+  }
+  
+  .visitor .site-brand .site-text-sub {
+      font-size: 12px;
+  }
+}
+/*移动端侧边栏头部END*/
+/* 自定义底部HTML样式 */
+.footer-custom-html {
+  margin: 15px 0;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.footer-custom-html a {
+  color: var(--theme-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-custom-html a:hover {
+  color: var(--theme-color-hover);
+}
+
+.footer-custom-html img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* 夜间模式适配 */
+.night .footer-custom-html {
+  color: var(--text-color-night);
+}
+/* 自定义底部样式END */
+/* 移动端卡片布局 */
+@media (max-width: 768px) {
+  /* 卡片网格布局 */
+  .content .main-part > ul {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 12px;
+  }
+
+  /* 卡片内容布局 */
+  .content .main-part ul li {
+      background: var(--bg-1);
+      border-radius: 8px;
+      overflow: hidden;
+  }
+
+  /* 图片容器 */
+  .content .main-part ul li .home-pic {
+      position: relative;
+      padding-bottom: 66%; /* 3:2比例 */
+      background: var(--bg-2);
+  }
+
+  .content .main-part ul li .home-pic img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  /* 文字区域 */
+  .content .main-part ul li .home-info-wrap {
+      padding: 10px;
+  }
+
+  /* 标题样式 */
+  .content .main-part ul li .home-title {
+      font-size: 13px;
+      line-height: 1.4;
+      margin: 0 0 6px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      max-height: 36.4px;
+      color: var(--text);
+  }
+
+  /* 底部信息 */
+  .content .main-part ul li .home-info {
+      font-size: 12px;
+      color: var(--text-2);
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 360px) {
+  .content .main-part > ul {
+      gap: 8px;
+      padding: 8px;
+  }
+
+  .content .main-part ul li .home-info-wrap {
+      padding: 8px;
+  }
+
+  .content .main-part ul li .home-title {
+      font-size: 12px;
+      margin: 0 0 4px;
+      max-height: 33.6px;
+  }
+
+  .content .main-part ul li .home-info {
+      font-size: 11px;
+  }
+}
