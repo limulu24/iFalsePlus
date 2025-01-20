@@ -839,36 +839,10 @@ function i_show_ad($position) {
   }
 }
 // 广告END
-// 禁用WordPress自动更新功能
-function disable_wp_updates() {
-  if(get_option('i_disable_wp_update') == '1') {
-      // 禁用核心更新检查
-      add_filter('pre_site_transient_update_core', '__return_null');
-      
-      // 禁用自动更新
-      add_filter('automatic_updater_disabled', '__return_true');
-      
-      // 禁用后台更新检查
-      remove_action('admin_init', '_maybe_update_core');
-      
-      // 禁用主题更新检查
-      remove_action('load-update-core.php', 'wp_update_themes');
-      add_filter('pre_site_transient_update_themes', '__return_null');
-      
-      // 禁用插件更新检查
-      remove_action('load-update-core.php', 'wp_update_plugins');
-      add_filter('pre_site_transient_update_plugins', '__return_null');
-      
-      // 移除更新菜单
-      add_action('admin_menu', function() {
-          remove_submenu_page('index.php', 'update-core.php');
-      });
-      
-      // 移除管理员通知
-      add_action('admin_init', function() {
-          remove_action('admin_notices', 'update_nag', 3);
-      });
-  }
+// 禁用WordPress自动更新和更新提醒
+if(is_admin() && get_option('i_disable_wp_update') == '1') {
+  add_filter('automatic_updater_disabled', '__return_true');
+  add_filter('auto_update_core', '__return_false');
+  remove_action('admin_notices', 'update_nag', 3);
 }
-add_action('init', 'disable_wp_updates');
 // 禁用wp更新END
