@@ -251,3 +251,10 @@ function setCookie() {
 </script>
 <?php endif; ?>
 <!-- 公告END -->
+ <!--动画div-->
+<body>
+    <div class="page-loading">
+        <div class="loading-icon"></div>
+    </div>
+</body>
+<!--动画divEND-->

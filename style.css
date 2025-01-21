@@ -4,7 +4,7 @@ Theme URI: https://github.com/limulu24/iFalsePlus
 Description: 一个二次元向的wordpress主题，基于iFalse二次开发
 Author: limulu24
 Author URI: https://github.com/limulu24
-Version: limulu1.7.5
+Version: limulu1.7.6
 Tags: iFalsePlus, iFalsePlus主题
 */
 /*card动画*/
@@ -302,3 +302,85 @@ Tags: iFalsePlus, iFalsePlus主题
   }
 }
 /* 移动端卡片布局END */
+/* 页面加载动画 */
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(var(--bg-1-rgb), 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-loading.hide {
+  opacity: 0;
+  visibility: hidden;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+}
+
+.loading-icon {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  transform: scale(0);
+  animation: loadingPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.loading-icon::before,
+.loading-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--theme);
+  filter: drop-shadow(0 0 8px var(--theme-3));
+  animation: spin 1.2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+}
+
+.loading-icon::before {
+  transform: translate(-50%, -50%) rotate(120deg);
+  animation-delay: 0.15s;
+}
+
+.loading-icon::after {
+  transform: translate(-50%, -50%) rotate(240deg);
+  animation-delay: 0.3s;
+}
+
+@keyframes spin {
+  from {
+      transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+      transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes loadingPop {
+  from {
+      transform: scale(0);
+  }
+  to {
+      transform: scale(1);
+  }
+}
+
+/* 深色模式适配 */
+.night .page-loading {
+  background: rgba(var(--bg-1-night-rgb), 0.6);
+}
+/*页面加载动画END*/

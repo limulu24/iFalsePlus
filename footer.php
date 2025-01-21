@@ -79,3 +79,13 @@
 
     </div>
 </div>
+<!--动画-->
+    <script>
+             window.addEventListener('load', function() {
+    document.querySelector('.page-loading').classList.add('hide');
+    setTimeout(function() {
+        document.querySelector('.page-loading').remove();
+    }, 300);
+        });
+    </script>
+<!--动画jsEND-->
