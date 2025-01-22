@@ -1,3 +1,6 @@
+vlimulu1.7.7
+- 修复已知bug
+
 vlimulu1.7.6
 - 添加页面加载动画
 - 修复已知bug

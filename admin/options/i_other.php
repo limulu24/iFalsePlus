@@ -94,13 +94,13 @@ if(@stripslashes($_POST["i_opt"])){
                         <p class="description">开启后首页变成灰色。</p>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th scope="row"><label for="i_plan">体验计划</label></th>
                     <td>
                         <label><input type="checkbox" name="i_plan" value="1" <?=get_option("i_plan") == '1' ? 'checked' : ''?>>开启</label>
                         <p class="description">开启后将帮助开发者获得更多的BUG反馈。</p>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <p class="submit">
