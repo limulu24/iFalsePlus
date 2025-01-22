@@ -50,7 +50,7 @@ function i_searchform_mb() {
 // ---------------------------------------------------------------------
 // 主题设置
 add_action('admin_menu', 'ifalse_set');
-function ifalse_set(){add_menu_page('iFalse主题', 'iFalse主题', 'edit_themes', 'i_opt', 'i_opt');}
+function ifalse_set(){add_menu_page('iFalsePlus主题', 'iFalsePlus主题', 'edit_themes', 'i_opt', 'i_opt');}
 function i_opt(){require get_template_directory()."/admin/i_opt.php";}
 
 // 子菜单
