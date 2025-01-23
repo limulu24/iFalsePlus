@@ -846,3 +846,50 @@ if(is_admin() && get_option('i_disable_wp_update') == '1') {
   remove_action('admin_notices', 'update_nag', 3);
 }
 // 禁用wp更新END
+// 网站地图功能
+function i_control_sitemap() {
+  // 如果未启用网站地图，则完全禁用
+  if(get_option('i_sitemap') != '1') {
+      add_filter('wp_sitemaps_enabled', '__return_false');
+      return;
+  }
+  
+  // 排除敏感页面和私密内容
+  add_filter('wp_sitemaps_posts_query_args', function($args, $post_type) {
+      if($post_type === 'page') {
+          // 需要排除的敏感页面
+          $exclude_slugs = ['login', 'register', 'admin', 'dashboard', 'forget'];
+          $exclude_pages = get_pages([
+              'post_type' => 'page',
+              'post_status' => 'publish',
+              'post_name__in' => $exclude_slugs
+          ]);
+          
+          if(!empty($exclude_pages)) {
+              $args['post__not_in'] = isset($args['post__not_in']) 
+                  ? array_merge($args['post__not_in'], wp_list_pluck($exclude_pages, 'ID'))
+                  : wp_list_pluck($exclude_pages, 'ID');
+          }
+          
+          // 只包含公开的页面
+          $args['post_status'] = 'publish';
+      }
+      return $args;
+  }, 10, 2);
+  
+  // 限制每个sitemap文件的URL数量，避免服务器压力
+  add_filter('wp_sitemaps_max_urls', function() {
+      return 1000;
+  });
+  
+  // 添加自定义的robots规则
+  add_filter('wp_robots', function($robots) {
+      if(is_404() || is_search() || is_preview()) {
+          $robots['noindex'] = true;
+      }
+      return $robots;
+  });
+}
+add_action('init', 'i_control_sitemap');
+
+// 网站地图END

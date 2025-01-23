@@ -7,6 +7,7 @@
 @$i_404_tip = stripslashes($_POST["i_404_tip"]);
 @$i_mourn = stripslashes($_POST["i_mourn"]);
 @$i_plan = stripslashes($_POST["i_plan"]);
+@$i_sitemap = stripslashes($_POST["i_sitemap"]);
 
 if(@stripslashes($_POST["i_opt"])){
     update_option("i_keywords", $i_keywords);
@@ -17,6 +18,7 @@ if(@stripslashes($_POST["i_opt"])){
     update_option("i_404_tip", $i_404_tip);
     update_option("i_mourn", $i_mourn);
     update_option("i_plan", $i_plan);
+    update_option("i_sitemap", $i_sitemap);
 }
 ?>
 
@@ -39,6 +41,15 @@ if(@stripslashes($_POST["i_opt"])){
                         <p class="description-primary">默认：iFalse主题</p>
                     </td>
                 </tr>
+
+                <tr>
+                    <th scope="row"><label for="i_sitemap">网站地图</label></th>
+                    <td>
+                        <label><input type="checkbox" name="i_sitemap" value="1" <?=get_option("i_sitemap") == '1' ? 'checked' : ''?>>开启</label>
+                        <p class="description">开启后将启用WordPress自带的网站地图功能。访问地址：<?php echo home_url('/wp-sitemap.xml'); ?></p>
+                    </td>
+                </tr>
+                
                 <tr>
                     <th scope="row"><label for="i_night">夜间模式</label></th>
                     <td>

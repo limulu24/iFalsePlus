@@ -1,3 +1,6 @@
+vlimulu1.8.1:
+- 增加网站地图功能，调用wordpress原生的sitemap功能
+
 vlimulu1.8.0:
 - 修改描述文件等其他一些地方的小修改
 
