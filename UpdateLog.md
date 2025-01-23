@@ -1,18 +1,21 @@
-vlimulu1.7.7
+vlimulu1.8.0:
+- 修改描述文件等其他一些地方的小修改
+
+vlimulu1.7.7：
 - 修复已知bug
 
-vlimulu1.7.6
+vlimulu1.7.6：
 - 添加页面加载动画
 - 修复已知bug
 
-vlimulu1.7.5
+vlimulu1.7.5：
 - 修复已知bug，增加稳定性
 - 优化代码逻辑
 
-vlimulu1.7.4
+vlimulu1.7.4：
 - 优化后台加载速度！
 
-vlimulu1.7.3
+vlimulu1.7.3：
 - 正式更名iFalsePlus，修复已知bug
 
 vlimulu1.7.1:  

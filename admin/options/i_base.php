@@ -200,7 +200,7 @@ if(@stripslashes($_POST["i_opt"])){
                          <td>
                     <label><input type="checkbox" name="i_notice_enabled" value="1" <?php checked(get_option('i_notice_enabled'), '1'); ?>>启用</label>
                      <p class="description">开启后将在全站显示公告弹窗</p>
-                      <p class="description-primary">可用于显示网站通知、活动信息等</p>
+                      <p class="description-primary">可用于显示网站通知等</p>
                        </td>
                           </tr>
 
@@ -278,7 +278,7 @@ if(@stripslashes($_POST["i_opt"])){
                       <th scope="row"><label for="i_logo_mobile">移动端 Logo</label></th>
                           <td>
                       <input class="regular-text" type="text" name="i_logo_mobile" value="<?php echo get_option('i_logo_mobile'); ?>" placeholder="请输入移动端 Logo 图片地址">
-                      <p class="description">移动端侧边栏显示的 Logo，留空则使用网站图标</p>
+                      <p class="description">移动端侧边栏顶部显示的 Logo，留空则使用网站图标</p>
                      <p class="description-primary">支持任意图片URL地址</p>
                     </td>
                          </tr>
@@ -287,7 +287,7 @@ if(@stripslashes($_POST["i_opt"])){
                      <th scope="row"><label for="i_mobile_slogan">移动端标语</label></th>
                             <td>
                     <input class="regular-text" type="text" name="i_mobile_slogan" value="<?php echo get_option('i_mobile_slogan'); ?>" placeholder="请输入移动端显示的标语">
-                    <p class="description">移动端侧边栏显示的标语，留空则使用网站描述</p>
+                    <p class="description">移动端侧边栏顶部显示的标语，留空则使用网站描述</p>
                     <p class="description-primary">建议简短精炼，突出特色</p>
                       </td>
                          </tr>
@@ -296,8 +296,8 @@ if(@stripslashes($_POST["i_opt"])){
                          <th scope="row"><label for="i_disable_wp_update">WordPress 更新</label></th>
                         <td>
                    <label><input type="checkbox" name="i_disable_wp_update" value="1" <?php checked(get_option('i_disable_wp_update'), '1'); ?>>禁用自动更新</label>
-                   <p class="description">禁用 WordPress 核心、主题和插件的自动更新检查</p>
-                  <p class="description-primary">启用后将完全禁用 WordPress 的更新检查功能</p>
+                   <p class="description">禁用 WordPress 版本的自动更新检查</p>
+                  <p class="description-primary">启用后将禁用 WordPress 的更新检查功能</p>
                     <p class="description-primary">可以避免服务器频繁检查更新，提升性能</p>
                     </td>
                       </tr>
