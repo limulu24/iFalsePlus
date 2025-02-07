@@ -4,7 +4,7 @@ Theme URI: https://github.com/limulu24/iFalsePlus
 Description: 一个二次元向的wordpress主题，基于iFalse二次开发
 Author: limulu24
 Author URI: https://github.com/limulu24
-Version: limulu1.8.1
+Version: limulu1.8.2
 Tags: iFalsePlus, iFalsePlus主题
 */
 /*card动画*/
@@ -384,3 +384,36 @@ Tags: iFalsePlus, iFalsePlus主题
   background: rgba(var(--bg-1-night-rgb), 0.6);
 }
 /*页面加载动画END*/
+/*图片大小优化*/
+.single-main .left .post-content > .wp-block-image {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 20px 0; /* 为每个图片容器添加上下间距，避免拥挤 */
+  position: relative;
+}
+
+/* 图片样式，确保图片完全显示，不裁剪 */
+.single-main .left .post-content > .wp-block-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;  /* 确保图片不被裁剪，完整显示 */
+  object-position: center center;  /* 确保图片居中显示 */
+}
+
+/* 自适应不同屏幕尺寸 */
+@media (max-width: 768px) {
+  .single-main .left .post-content > .wp-block-image {
+      width: 100%;  /* 确保容器在较小设备上宽度自适应 */
+  }
+}
+
+@media (max-width: 480px) {
+  .single-main .left .post-content > .wp-block-image {
+      width: 100%;  /* 确保容器在小屏设备上也能自适应 */
+  }
+}
+/*图片大小优化END*/

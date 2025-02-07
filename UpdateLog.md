@@ -1,3 +1,6 @@
+limulu1.8.2:
+- 优化图片显示
+
 vlimulu1.8.1:
 - 增加网站地图功能，调用wordpress原生的sitemap功能
 
