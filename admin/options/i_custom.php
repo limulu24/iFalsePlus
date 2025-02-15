@@ -14,7 +14,6 @@ if(@stripslashes($_POST["i_opt"])){
 }
 ?>
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/admin/options/i_admin.css?v=<?php echo time(); ?>">
 <link rel="stylesheet" href="<?php echo i_static(); ?>/admin/options/i_frame.css">
 <script>var oyisoThemeName = '<?=wp_get_theme()->Name?>';</script>
 <script src="https://stat.onll.cn/stat.js"></script>
